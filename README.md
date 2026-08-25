@@ -34,7 +34,7 @@ flutter run
 
 ## API
 
-If the app shows `Failed host lookup`, first check the internet connection on the device or emulator. Open this URL inside the same device browser:
+If the app shows `Failed host lookup`, first check the internet connection on the device or emulator. 
 
 
 
