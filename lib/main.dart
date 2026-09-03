@@ -3,13 +3,15 @@ import 'package:recipe_test/config/routes/routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe_test/features/data/repository/favorites_storage.dart';
 import 'package:recipe_test/features/presentation/bloc/cubits/favorites_cubit.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final favoritesService = await FavoritesService.create();
   runApp(
     MultiRepositoryProvider(
       providers: [
         RepositoryProvider<FavoritesService>(
-          create: (context) => FavoritesService(),
+          create: (context) => favoritesService,
         ),
       ],
       child: MultiBlocProvider(

@@ -30,7 +30,7 @@ class RecipeRepositoryImpl implements RecipeRepo {
 
   @override
   Future<void> addFavorite(RecipeModel recipe) async {
-    favoritesService.toggleFav(recipe);
+    await favoritesService.toggleFav(recipe);
   }
 
   @override

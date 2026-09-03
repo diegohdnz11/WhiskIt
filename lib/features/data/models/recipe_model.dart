@@ -36,4 +36,39 @@ class RecipeModel {
     );
   }
 
+  Map<String, dynamic> toFavoriteJson() {
+    final firstInstructionLine = instructions.split('\n').first.trim();
+    final instructionPreview = firstInstructionLine.length > 160
+        ? '${firstInstructionLine.substring(0, 160)}…'
+        : firstInstructionLine;
+
+    return {
+      'id': id,
+      'title': title,
+      'thumbnail': thumbnail,
+      'instructionPreview': instructionPreview,
+    };
+  }
+
+  factory RecipeModel.fromFavoriteJson(Map<String, dynamic> json) {
+    final id = json['id'];
+    final title = json['title'];
+    final thumbnail = json['thumbnail'];
+    final instructionPreview = json['instructionPreview'];
+
+    if (id is! String ||
+        title is! String ||
+        thumbnail is! String ||
+        instructionPreview is! String) {
+      throw const FormatException('Invalid saved favorite');
+    }
+
+    return RecipeModel(
+      id: id,
+      title: title,
+      thumbnail: thumbnail,
+      instructions: instructionPreview,
+      ingredients: const [],
+    );
+  }
 }

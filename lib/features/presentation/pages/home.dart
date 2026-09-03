@@ -26,8 +26,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SearchCubit(RecipeRepositoryImpl(RecipeApi(), FavoritesService())),
+      create: (context) => SearchCubit(
+        RecipeRepositoryImpl(RecipeApi(), context.read<FavoritesService>()),
+      ),
       child: Builder(
         builder: (BuildContext builderContext) {
           return Scaffold(
@@ -129,7 +130,6 @@ class _HomeHeader extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 4),
-
             ],
           ),
         ),
@@ -139,7 +139,6 @@ class _HomeHeader extends StatelessWidget {
           shadowColor: Colors.black12,
           borderRadius: BorderRadius.circular(8),
           child: IconButton(
-            
             tooltip: 'Favorites',
             onPressed: onFavorites,
             icon: const Icon(Icons.favorite_border_rounded),
