@@ -41,6 +41,7 @@ dependencies:
   go_router: ^5.0.0
 
   cached_network_image: ^3.3.1
+  shared_preferences: ^2.3.5
 
 
   cupertino_icons: ^1.0.8
