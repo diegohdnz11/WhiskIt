@@ -123,7 +123,7 @@ class _HomeHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'The Recipe Book',
+                'WhiskIt',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: const Color(0xFF243642),
                   fontWeight: FontWeight.w800,

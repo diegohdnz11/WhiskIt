@@ -1,4 +1,4 @@
-# The Recipe Book
+# WhiskIt
 
 A Recipe Search app that uses TheMealDB Api to find recipes, view recipe details, and lets you save favorites recipies while browsing.
 
