@@ -28,7 +28,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RecipeDetailCubit(
-        RecipeRepositoryImpl(RecipeApi(), FavoritesService()),
+        RecipeRepositoryImpl(RecipeApi(), context.read<FavoritesService>()),
       )..getRecipeDetail(widget.recipeId),
       child: Builder(
         builder: (inside) {

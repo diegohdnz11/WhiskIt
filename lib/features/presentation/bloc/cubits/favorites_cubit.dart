@@ -12,9 +12,11 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     emit(state.copyWith(isFavorite: heart.isFav(id)));
   }
 
-  void onOff(RecipeModel recipe) {
-    heart.toggleFav(recipe);
-    emit(state.copyWith(isFavorite: heart.isFav(recipe.id), items: heart.all()));
+  Future<void> onOff(RecipeModel recipe) async {
+    await heart.toggleFav(recipe);
+    emit(
+      state.copyWith(isFavorite: heart.isFav(recipe.id), items: heart.all()),
+    );
   }
 
   void loadHearts() {
